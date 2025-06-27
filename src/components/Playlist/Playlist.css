@@ -1,0 +1,13 @@
+.Playlist {
+    width: 45%;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .Playlist input {
+    padding: 10px;
+    width: 200px;
+  }
+  .Playlist button {
+    padding: 10px 20px;
+    margin: 10px;
+  }
