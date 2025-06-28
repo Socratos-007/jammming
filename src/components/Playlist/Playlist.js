@@ -2,11 +2,11 @@ import React from 'react';
 import './Playlist.css';
 import Tracklist from '../Tracklist/Tracklist';
 
-function Playlist() {
+function Playlist({ playlistName, playlistTracks }) {
   return (
     <div className="Playlist">
-      <input defaultValue="New Playlist" />
-      <Tracklist tracks={[]} />
+      <input defaultValue={playlistName} />
+      <Tracklist tracks={playlistTracks} />
       <button>Save To Spotify</button>
     </div>
   );
