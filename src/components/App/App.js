@@ -18,8 +18,8 @@ function App() {
     { id: 5, name: 'Song 5', artist: 'Artist 5', album: 'Album 5' },
   ]);
 
-  // Название плейлиста
-  const playlistName = 'My Awesome Playlist';
+  // Состояние для названия плейлиста
+  const [playlistName, setPlaylistName] = useState('My Awesome Playlist');
 
   // Функция для добавления трека
   const addTrack = (track) => {
@@ -33,13 +33,23 @@ function App() {
     setPlaylistTracks(playlistTracks.filter((existingTrack) => existingTrack.id !== track.id));
   };
 
+  // Функция для обновления названия плейлиста
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  };
+
   return (
     <div className="App">
       <h1>Jammming</h1>
       <SearchBar />
       <div className="App-container">
         <SearchResults searchResults={searchTracks} onAdd={addTrack} />
-        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} />
+        <Playlist
+          playlistName={playlistName}
+          playlistTracks={playlistTracks}
+          onRemove={removeTrack}
+          onNameChange={updatePlaylistName}
+        />
       </div>
     </div>
   );
