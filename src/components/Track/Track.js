@@ -1,9 +1,13 @@
 import React from 'react';
 import './Track.css';
 
-function Track({ track, onAdd, isRemoval }) {
+function Track({ track, onAdd, onRemove, isRemoval }) {
   const handleAdd = () => {
     onAdd(track);
+  };
+
+  const handleRemove = () => {
+    onRemove(track);
   };
 
   return (
@@ -14,7 +18,9 @@ function Track({ track, onAdd, isRemoval }) {
           {track.artist} | {track.album}
         </p>
       </div>
-      <button onClick={handleAdd}>{isRemoval ? '-' : '+'}</button>
+      <button onClick={isRemoval ? handleRemove : handleAdd}>
+        {isRemoval ? '-' : '+'}
+      </button>
     </div>
   );
 }
